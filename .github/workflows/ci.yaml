@@ -1,0 +1,28 @@
+name: wf-ci
+on: 
+  pull_request:
+    branches: 
+      - develop
+    types:
+      - opened
+      - synchronize
+  push:
+    branches:
+      - develop
+jobs:
+  linting-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome steps
+        run: echo "Welcome to CI Pipeline"
+      - name: Checkout repo
+        uses: actions/checkout@v4
+      - name: Repo Information
+        run: 
+          git branch
+          echo "Actor Name:${{github.actor}}"
+          echo "Repo Name:${{github.repo}} "
+        
+
+
+
